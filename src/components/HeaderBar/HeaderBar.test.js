@@ -1,6 +1,3 @@
-import React from 'react';
-import { shallow, mount } from 'enzyme';
-
 // Component to be tested
 import HeaderBar from './HeaderBar';
 

@@ -17,6 +17,8 @@ class App extends Component {
 					<ConnectedRouter history={history}>
 						<Switch>
 							<Route exact path="/" component={Home} />
+							<Route path="/categories" />
+							<Route path="/products" />
 						</Switch>
 					</ConnectedRouter>
 				</Provider>
