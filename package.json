@@ -8,7 +8,10 @@
     "@material/layout-grid": "^0.41.0",
     "axios": "^0.18.0",
     "connected-react-router": "^6.3.2",
+    "cross-fetch": "^3.0.2",
     "history": "^4.9.0",
+    "lodash": "^4.17.11",
+    "normalizr": "^3.3.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-redux": "^6.0.1",
@@ -39,6 +42,8 @@
     "redux-devtools-extension": "^2.13.8"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

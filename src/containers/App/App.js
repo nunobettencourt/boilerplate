@@ -6,7 +6,7 @@ import store, { history } from '../../store/store';
 import './App.css';
 
 import HeaderBar from '../../components/HeaderBar/HeaderBar';
-import Home from '../../components/Home/Home';
+import HomeContainer from '../../containers/Home/HomeContainer';
 
 class App extends Component {
 	render() {
@@ -16,7 +16,7 @@ class App extends Component {
 					<HeaderBar />
 					<ConnectedRouter history={history}>
 						<Switch>
-							<Route exact path="/" component={Home} />
+							<Route exact path="/" component={HomeContainer} />
 							<Route path="/categories" />
 							<Route path="/products" />
 						</Switch>

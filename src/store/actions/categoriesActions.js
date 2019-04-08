@@ -1,4 +1,4 @@
-import axios from 'axios';
+import fetch from 'cross-fetch';
 
 import {
 	ROOT_URL,
@@ -7,14 +7,10 @@ import {
 	CATEGORIES_FETCH_FAILED,
 } from './types';
 
-export const fetchHierarchy = () => async dispatch => {
+export const fetchCategories = () => async dispatch => {
 	dispatch(fetchRequest());
 
-	var authOptions = {
-		method: 'get',
-		url: `${ROOT_URL}/categories`,
-	};
-	await axios(authOptions)
+	await fetch(`${ROOT_URL}/categories`)
 		.then(({ data }) => {
 			dispatch(fetchSuccess(data));
 		})

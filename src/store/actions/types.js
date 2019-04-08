@@ -1,5 +1,5 @@
 /** API ROOT URL **/
-export const ROOT_URL = 'https://api.gousto.co.uk/products/v2.0/';
+export const ROOT_URL = 'https://api.gousto.co.uk/products/v2.0';
 
 /** CATEGORIES TYPES */
 export const CATEGORIES_FETCH_START = '@@categories/CATEGORIES_FETCH_START';
