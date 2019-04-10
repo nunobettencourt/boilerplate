@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../../logo.svg';
 
-const Home = ({ fetchCategories }) => {
+const Home = ({ fetchCategories, fetchProducts }) => {
 	const [initialized, setInitialized] = useState(false);
 
 	useEffect(() => {
-		!initialized && fetchCategories();
-		setInitialized(true);
+		const fetchInitialData = () => {
+			fetchCategories();
+			fetchProducts();
+
+			setInitialized(true);
+		};
+		!initialized && fetchInitialData();
 	});
 
 	return (

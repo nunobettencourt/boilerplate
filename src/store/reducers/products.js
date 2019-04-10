@@ -1,15 +1,11 @@
-import {
-	PRODUCTS_FETCH_START,
-	PRODUCTS_FETCH_SUCCESS,
-	PRODUCTS_FETCH_FAILED,
-} from '../actions/types';
+import { SET_PRODUCTS } from '../actions/types';
 
-const INITIAL_STATE = {};
+const INITIAL_STATE = { loading: null, error: null, data: [] };
 
-const productsReducer = (state = INITIAL_STATE, action) => {
-	switch (action.type) {
-		case PRODUCTS_FETCH_START:
-			return action.payload;
+const productsReducer = (state = INITIAL_STATE, { type, data }) => {
+	switch (type) {
+		case SET_PRODUCTS:
+			return { ...state, loading: false, data };
 		default:
 			return state;
 	}

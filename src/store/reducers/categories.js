@@ -11,7 +11,7 @@ const categoriesReducer = (state = INITIAL_STATE, { type, data }) => {
 		case CATEGORIES_FETCH_START:
 			return { ...state, loading: true };
 		case CATEGORIES_FETCH_SUCCESS:
-			return { ...state, loading: false, categories: data };
+			return { ...state, loading: false, data };
 		case CATEGORIES_FETCH_FAILED:
 			return { ...state, loading: false, error: data };
 		default:
