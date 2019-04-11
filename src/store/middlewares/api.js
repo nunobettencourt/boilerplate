@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { NEW_REQUEST, ROOT_URL } from '../actions/types';
+import fetch from 'cross-fetch';
+import { NEW_REQUEST } from '../actions/types';
 import { apiEnd, apiError, apiStart } from '../actions';
 
 export const api = ({ dispatch }) => next => action => {
@@ -7,12 +7,17 @@ export const api = ({ dispatch }) => next => action => {
 
 	const { entity, params, onSuccess, onFailure } = action.payload;
 
-	const url = `${ROOT_URL}/${entity}${params}`;
+	const endpoint = `${entity}${params}`;
 
 	dispatch(apiStart());
 
-	axios
-		.get(url)
+	fetch(`/products/v2.0/${endpoint}`)
+		.then(res => {
+			if (res.status >= 400) {
+				dispatch(apiError('Bad response from server'));
+			}
+			return res.json();
+		})
 		.then(({ data }) => {
 			dispatch(onSuccess(data));
 		})

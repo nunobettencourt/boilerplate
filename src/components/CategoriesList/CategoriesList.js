@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './CategoriesList.styles.css';
+
 const CategoriesList = ({ categories }) => {
 	return (
 		<ul className="categoriesList">
-			{categories.map(category => (
-				<li key={category.id}>{category.title}</li>
-			))}
+			{categories
+				.filter(category => category.hidden === false)
+				.map(category => (
+					<li key={category.id}>{category.title}</li>
+				))}
 		</ul>
 	);
 };
