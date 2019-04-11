@@ -1,6 +1,6 @@
 import { SET_PRODUCTS } from '../actions/types';
 
-const INITIAL_STATE = { loading: null, error: null, data: [] };
+const INITIAL_STATE = { loading: null, error: null, data: {} };
 
 const productsReducer = (state = INITIAL_STATE, { type, data }) => {
 	switch (type) {

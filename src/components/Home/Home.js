@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import logo from '../../logo.svg';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+import PropTypes from 'prop-types';
 
-const Home = ({ fetchCategories, fetchProducts }) => {
+const CategoriesList = lazy(() => import('../CategoriesList/CategoriesList'));
+
+const Home = ({ fetchCategories, fetchProducts, categories }) => {
 	const [initialized, setInitialized] = useState(false);
 
 	useEffect(() => {
@@ -16,20 +18,17 @@ const Home = ({ fetchCategories, fetchProducts }) => {
 
 	return (
 		<header className="App-header">
-			<img src={logo} className="App-logo" alt="logo" />
-			<p>
-				Edit <code>src/App.js</code> and save to reload.
-			</p>
-			<a
-				className="App-link"
-				href="https://reactjs.org"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Learn React
-			</a>
+			<Suspense fallback={<div>Loading...</div>}>
+				<CategoriesList categories={categories} />
+			</Suspense>
 		</header>
 	);
+};
+
+Home.propTypes = {
+	fetchCategories: PropTypes.func.isRequired,
+	fetchProducts: PropTypes.func.isRequired,
+	categories: PropTypes.array.isRequired,
 };
 
 export default Home;

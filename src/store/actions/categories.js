@@ -9,7 +9,7 @@ export const fetchCategories = () => {
 	});
 };
 
-const fetchSuccess = data => ({
+export const fetchSuccess = data => ({
 	type: CATEGORIES_FETCH_SUCCESS,
 	data,
 });

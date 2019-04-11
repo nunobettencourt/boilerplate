@@ -4,7 +4,13 @@ import Home from '../../components/Home/Home';
 
 import { fetchCategories, fetchProducts } from '../../store/actions';
 
-const mapStateToProps = ({ categories }) => categories;
+const mapStateToProps = state => {
+	const { categories } = state;
+
+	return {
+		categories: categories.data,
+	};
+};
 
 export const HomeContainer = connect(
 	mapStateToProps,

@@ -10,7 +10,7 @@ export const fetchProducts = () => {
 	});
 };
 
-const setProducts = data => ({
+export const setProducts = data => ({
 	type: SET_PRODUCTS,
 	data,
 });
